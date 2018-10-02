@@ -65,3 +65,5 @@ typings/
 build
 dist
 package-lock.json
+# need to find out what creates this file -.-
+src/index.js

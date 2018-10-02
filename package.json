@@ -4,7 +4,8 @@
   "description": "A simple webpack config for my Redux Made Easy Series",
   "main": "index.tsx",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "CodeWithTim",
   "license": "ISC",

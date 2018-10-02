@@ -4,4 +4,4 @@ This is a implementation of '21 Implementing React Router Part 3' from [codewith
 
 This code also supports the Redux DevTools extension for Google chrome.
 
-Try the result on [github pages](http://s-weigand.gihub.io/redux-typescript-example)
+Try the result on [github pages](http://s-weigand.github.io/redux-typescript-example)
