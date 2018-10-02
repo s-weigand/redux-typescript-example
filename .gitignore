@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# parcel build stuff
+.cache
+build
+dist
+package-lock.json
