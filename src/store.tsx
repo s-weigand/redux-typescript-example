@@ -12,6 +12,7 @@ export default function configureStore(preloadedState={}) {
 	const middlewareEnhancer =applyMiddleware(...middlewares)
 	const enhancers = [middlewareEnhancer, 
 	// this makes the redux chrome dev tools aware of redux
+	// taken from https://github.com/prescottprue/redux-firebasev3/issues/5
 	window.devToolsExtension ? window.devToolsExtension() : (f) => (f)]
   	const composedEnhancers = compose(...enhancers);
 	// const enhancers = [middlewareEnhancer]
