@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Button from './button';
 import UserItem from './userItem';
+import {UserType} from '../types'
+
 
 // interface UserProps{
 //   data:{
@@ -16,7 +18,7 @@ import UserItem from './userItem';
 // }
 
 export default class Users extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
   }
 
@@ -30,7 +32,7 @@ export default class Users extends React.Component {
           className={'btn btn-blue'}
         />
         <div id={'users'}>
-          {data.users.map((user, i) => {
+          {data.users.map((user: UserType, i: number) => {
             return <UserItem
               key={i}
               user={user}

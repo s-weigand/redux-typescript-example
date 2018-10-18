@@ -1,6 +1,6 @@
 import * as React from 'react';
 import NavBar from './navBar';
-const App = (props) => (
+const App = (props: any) => (
   <div className='appComp' >
     <NavBar />
     <div>

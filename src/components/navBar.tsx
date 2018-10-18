@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = (props) => (
+const NavBar = (props: any) => (
   <nav>
     <Link to='/'>
       Home

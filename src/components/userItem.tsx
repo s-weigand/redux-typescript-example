@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 // /user:orangeleopard347
-const UserItem = (props) => (
+const UserItem = (props: any) => (
   <Link
     className='box'
     onClick={props.onClick}

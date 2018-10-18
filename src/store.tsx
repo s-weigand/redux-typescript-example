@@ -1,8 +1,7 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { logger } from 'redux-logger';
 import promise from 'redux-promise-middleware';
-import usersReducer from './reducers/users';
-import userProfileReducer from './reducers/userProfile';
+import { composeWithDevTools } from 'redux-devtools-extension'
 import axios from 'axios';
 import rootReducer from './reducers'
 
@@ -10,12 +9,8 @@ import rootReducer from './reducers'
 export default function configureStore(preloadedState={}) {
 	const middlewares = [logger, promise()];
 	const middlewareEnhancer =applyMiddleware(...middlewares)
-	const enhancers = [middlewareEnhancer, 
-	// this makes the redux chrome dev tools aware of redux
-	// taken from https://github.com/prescottprue/redux-firebasev3/issues/5
-	window.devToolsExtension ? window.devToolsExtension() : (f) => (f)]
-  	const composedEnhancers = compose(...enhancers);
-	// const enhancers = [middlewareEnhancer]
+	const composeEnhancers = composeWithDevTools({})
+  	const composedEnhancers = composeEnhancers(middlewareEnhancer);
 	const store = createStore(
     rootReducer,
     preloadedState,
@@ -23,6 +18,7 @@ export default function configureStore(preloadedState={}) {
     );
 
 	if (process.env.NODE_ENV !== 'production' && module.hot) {
+		console.log("hotreload activated")
 	  module.hot.accept('./reducers', () =>{
 	  	const nextReducer = require('./reducers/index').default;
 	    store.replaceReducer(nextReducer)

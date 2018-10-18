@@ -1,8 +1,7 @@
-// Promise
-// pending
-// fulfilled
-// rejected
-const initalState = {
+import { Reducer, AnyAction } from 'redux'
+import { UsersActionTypes, UsersState } from '../types'
+
+const initalState: UsersState = {
   users: [],
   loading: false,
   error: null,
@@ -19,17 +18,18 @@ interface Action{
 }
 
 // REDCUER
-export default function usersReducer(state:any = initalState, action: Action) {
+const reducer: Reducer<any> = (state:UsersState = initalState, action: AnyAction) => {
   let users;
   switch (action.type) {
-    case 'FETCH_USER_PENDING':
+    case UsersActionTypes.FETCH_USER_PENDING:
       return { ...state, loading: true };
-    case 'FETCH_USER_FULFILLED':
+    case UsersActionTypes.FETCH_USER_FULFILLED:
       users = action.payload.data.results;
-      return { ...state, loading: false, users };
-    case 'FETCH_USER_REJECTED':
+      return { ...state, loading: false, users};
+    case UsersActionTypes.FETCH_USER_REJECTED:
       return { ...state, loading: false, error: `${action.payload.message}` };
     default:
       return state;
   }
 }
+export { reducer as usersReducer }
