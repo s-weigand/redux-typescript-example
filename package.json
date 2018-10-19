@@ -2,15 +2,16 @@
   "name": "redux-made-easy",
   "version": "1.0.0",
   "description": "A simple webpack config for my Redux Made Easy Series",
+  "homepage": "https://s-weigand.github.io/redux-typescript-example",
   "main": "index.tsx",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
   "author": "CodeWithTim",
   "license": "ISC",
   "dependencies": {
-    "@types/parcel-env": "0.0.0",
     "axios": "^0.15.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -31,6 +32,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/redux-logger": "^3.0.6",
     "@types/redux-promise-middleware": "0.0.11",
+    "@types/parcel-env": "0.0.0",
     "parcel-bundler": "^1.9.7",
     "redux-devtools-extension": "^2.13.5",
     "typescript": "^3.0.3"
