@@ -1,7 +1,13 @@
 import * as React from 'react';
 
-export default class UserProfile extends React.Component{
-  constructor(props: any) {
+import {  UserType } from '../types';
+
+export interface UserProfileProps{
+  userProfile:UserType
+}
+
+export default class UserProfile extends React.Component<UserProfileProps>{
+  constructor(props: UserProfileProps) {
     super(props);
   }
   render(){

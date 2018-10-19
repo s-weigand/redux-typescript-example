@@ -1,6 +1,28 @@
 // following https://dev.to/resir014/redux-4--typescript-29-a-type-safe-approach-2lf4
+import * as React from "react"
 
 
+export interface ReactDefaultProps{
+	children?: JSX.Element[]| Element[]|JSX.Element| Element
+	onClick?: ((event: React.MouseEvent<HTMLElement>) => void) | undefined
+	className?: string
+	text?: string
+}
+
+export interface UserAction{
+	type: string
+	payload: {
+		data: {
+			results: UserType[]
+		}
+		message: string	
+	}
+}
+
+export interface UserProfileAction{
+	type: string
+	payload:  UserType
+}
 
 export const enum UsersActionTypes{
 	FETCH_USER = '@@users/FETCH_USER',

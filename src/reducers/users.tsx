@@ -1,5 +1,5 @@
 import { Reducer, AnyAction } from 'redux'
-import { UsersActionTypes, UsersState } from '../types'
+import { UsersActionTypes, UsersState, UserAction } from '../types'
 
 const initalState: UsersState = {
   users: [],
@@ -7,18 +7,8 @@ const initalState: UsersState = {
   error: null,
 };
 
-interface Action{
-  type: string,
-  payload: {
-    message:string,
-    data:{
-      results:string
-    }
-  }
-}
-
 // REDCUER
-const reducer: Reducer<any> = (state:UsersState = initalState, action: AnyAction) => {
+const reducer: Reducer<UsersState, UserAction> = (state: UsersState=initalState, action: UserAction):UsersState => {
   let users;
   switch (action.type) {
     case UsersActionTypes.FETCH_USER_PENDING:
@@ -32,4 +22,5 @@ const reducer: Reducer<any> = (state:UsersState = initalState, action: AnyAction
       return state;
   }
 }
+
 export { reducer as usersReducer }

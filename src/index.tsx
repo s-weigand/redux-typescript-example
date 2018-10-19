@@ -8,8 +8,6 @@ import Home from './components/home';
 import UserProfileContainer from './containers/userProfile';
 import { Router, Route, BrowserRouter, Switch} from 'react-router-dom';
 
-declare const module: any
-
 const UsersStore = configureStore();
 
 render(
@@ -24,8 +22,3 @@ render(
   </Provider>,
   document.getElementById('app') as Element
 );
-
-// Hot Module Replacement
-if (module.hot) {
-    module.hot.accept();
-}

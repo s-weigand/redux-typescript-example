@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { ReactDefaultProps } from '../types'
 
-const NavBar = (props: any) => (
+const NavBar = (props: ReactDefaultProps) => (
   <nav>
     <Link to='/'>
       Home

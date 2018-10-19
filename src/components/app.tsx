@@ -1,6 +1,8 @@
 import * as React from 'react';
 import NavBar from './navBar';
-const App = (props: any) => (
+import { ReactDefaultProps } from '../types'
+
+const App = (props: ReactDefaultProps) => (
   <div className='appComp' >
     <NavBar />
     <div>

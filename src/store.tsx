@@ -5,7 +5,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import axios from 'axios';
 import rootReducer from './reducers'
 
-
 export default function configureStore(preloadedState={}) {
 	const middlewares = [logger, promise()];
 	const middlewareEnhancer =applyMiddleware(...middlewares)
@@ -17,12 +16,12 @@ export default function configureStore(preloadedState={}) {
     composedEnhancers
     );
 
+	// allows hotswap for reducers
 	if (process.env.NODE_ENV !== 'production' && module.hot) {
-		console.log("hotreload activated")
-	  module.hot.accept('./reducers', () =>{
-	  	const nextReducer = require('./reducers/index').default;
-	    store.replaceReducer(nextReducer)
-	  }
+	  	module.hot.accept('./reducers', () =>{
+		  	const nextReducer = require('./reducers/index').default;
+		    store.replaceReducer(nextReducer)
+			}
 	  )
 	}
 	​

@@ -1,8 +1,13 @@
 import { connect } from 'react-redux';
 import UserProfile from '../components/userProfile';
+import { UserType } from '../types';
 
-const mapStateToProps = (state) => ({
-  userProfile: state.userProfileReducer,
+interface GlobalUserProfileState{
+  userProfile: UserType
+}
+
+const mapStateToProps = (state: GlobalUserProfileState) => ({
+  userProfile: state.userProfile,
 })
 
 const UserProfileContainer = connect(

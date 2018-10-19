@@ -1,24 +1,19 @@
 import * as React from 'react';
 import Button from './button';
 import UserItem from './userItem';
-import {UserType} from '../types'
+import { UserType, UsersState, ReactDefaultProps } from '../types'
 
 
-// interface UserProps{
-//   data:{
-//     results:string,
-//     users:{
-//       key: number,
-//       user: string,
-//     }
+export interface UserProps{
+  data:{
+    users: UserType[]
+  }
+  fetchUsers: Function,
+  setUser: Function
+}
 
-//   }
-//   fetchUsers: any,
-//   setUser:any
-// }
-
-export default class Users extends React.Component {
-  constructor(props: any) {
+export default class Users extends React.Component<UserProps> {
+  constructor(props: UserProps) {
     super(props);
   }
 
@@ -27,7 +22,7 @@ export default class Users extends React.Component {
     return (
       <div className='container'>
         <Button
-          onClick={fetchUsers}
+          onClick={() => fetchUsers()}
           text={'Fetch Users'}
           className={'btn btn-blue'}
         />

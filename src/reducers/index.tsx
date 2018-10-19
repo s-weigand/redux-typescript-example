@@ -16,7 +16,7 @@ const testInitState: TestInterface = {
 }
 
 class TestClass{
-	reducer(state:TestInterface = testInitState, action: AnyAction): Reducer<any>{
+	reducer(state:TestInterface = testInitState, action: AnyAction){
 		console.log("I'M a rogue reducer from a class")
 		return state
 	}
@@ -24,10 +24,10 @@ class TestClass{
 }
 
 const test = new TestClass
-const class_reducer = test.reducer
+const class_reducer = test.reducer as Reducer<any>
 
 export default combineReducers({
-        usersReducer,
-        userProfileReducer,
-        class_reducer
+        "users": usersReducer,
+        "userProfile": userProfileReducer,
+        "rougeReducer": class_reducer
 })

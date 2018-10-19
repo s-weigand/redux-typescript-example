@@ -1,9 +1,8 @@
-import { Reducer } from 'redux'
-import { UsersActionTypes } from '../types'
+import { Reducer, AnyAction } from 'redux'
+import { UsersActionTypes, UserType, UserProfileAction } from '../types'
 
-const reducer: Reducer<any> =  (state = null, action) => {
+const reducer: Reducer<UserType|null, UserProfileAction> = (state: UserType|null = null, action:UserProfileAction):UserType|null => {
   switch (action.type) {
-    // case 'SET_USER':
     case UsersActionTypes.SET_USER:
       return action.payload;
     default:

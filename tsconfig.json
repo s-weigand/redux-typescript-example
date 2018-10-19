@@ -31,7 +31,7 @@
     "transpileOnly": false
   },
   "include": [
-    "./src/**/*"
+    "src/**/*"
   ],
   "exclude": [
     ".git",

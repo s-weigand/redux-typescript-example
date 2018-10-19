@@ -1,14 +1,19 @@
-import { connect, DispatchProp } from 'react-redux';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux'
 import Users from '../components/users';
 import { fetchUsers, setUser } from '../actions/users';
 import { UsersState, UserType } from '../types';
 
+interface GlobalUsersState{
+  users: UsersState
+}
 
-const mapStateToProps = (state) => ({
-  data: state.usersReducer,
+
+const mapStateToProps = (state: GlobalUsersState) => ({
+  data: state.users,
 })
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     fetchUsers: () => {
       dispatch(fetchUsers())
