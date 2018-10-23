@@ -4,16 +4,16 @@ import Users from '../components/users';
 import { fetchUsers, setUser } from '../actions/users';
 import { UsersState, UserType } from '../types';
 
-interface GlobalUsersState{
+export interface GlobalUsersState{
   users: UsersState
 }
 
 
-const mapStateToProps = (state: GlobalUsersState) => ({
+export const mapStateToProps = (state: GlobalUsersState) => ({
   data: state.users,
 })
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     fetchUsers: () => {
       dispatch(fetchUsers())
@@ -28,5 +28,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Users)
-
-// export default UsersContainer;
